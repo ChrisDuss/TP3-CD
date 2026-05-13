@@ -41,7 +41,7 @@ public class Alchimiste {
 
     private void setNom(String nom) {
         if (nom == null) throw new IllegalArgumentException(NOM_NULL);
-        else if (nom.length() >= 6) throw new IllegalArgumentException(NOM_TROP_COURT);
+        else if (nom.length() <= 6) throw new IllegalArgumentException(NOM_TROP_COURT);
         else this.nom = nom;
     }
 
