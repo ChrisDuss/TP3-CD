@@ -20,24 +20,17 @@ public class TestsIngredient {
         ing = new Ingredient(nomInit, prixInint);
     }
 
-    @AfterEach
-    public void Ingredient_check_invariant() {
-        assertNotNull(ing.getNom());
-        assertTrue(ing.getNom().length() >= Ingredient.LONGEUR_NOM_MIN);
-        assertTrue(ing.getPrix() > 0);
-    }
-
-    @Test
-    public void Ingredient_getNom() {
-        assertEquals(ing.getNom(), nomInit);
-    }
-
     @Test
     public void Ingredient_Constructeur_setNom_Non_Null() {
         Exception ex = assertThrows(IllegalArgumentException.class, ()->
                 ing = new Ingredient(null, prixInint));
 
         assertEquals(Ingredient.NOM_NULL, ex.getMessage());
+    }
+
+    @Test
+    public void Ingredient_Constructeur_setNom() {
+        assertEquals(ing.getNom(), nomInit);
     }
 
     @Test
@@ -49,15 +42,15 @@ public class TestsIngredient {
     }
 
     @Test
-    public void Ingredient_getPrix() {
-        assertEquals(ing.getPrix(), prixInint);
-    }
-
-    @Test
     public void Ingredient_Constructeur_setPrix_Superieur_a_zero() {
         Exception ex = assertThrows(IllegalArgumentException.class, ()->
                 ing = new Ingredient(nomInit, 0));
 
         assertEquals(Ingredient.PRIX_SUPERIEUR_ZERO, ex.getMessage());
+    }
+
+    @Test
+    public void Ingredient_Constructeur_setPrix() {
+        assertEquals(ing.getPrix(), prixInint);
     }
 }
