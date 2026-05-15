@@ -20,6 +20,13 @@ public class TestsIngredient {
         ing = new Ingredient(nomInit, prixInint);
     }
 
+    @AfterEach
+    public void Ingredient_check_invariant() {
+        assertNotNull(ing.getNom());
+        assertTrue(ing.getNom().length() >= Ingredient.LONGEUR_NOM_MIN);
+        assertTrue(ing.getPrix() > 0);
+    }
+
     @Test
     public void Ingredient_Constructeur_setNom_Non_Null() {
         Exception ex = assertThrows(IllegalArgumentException.class, ()->

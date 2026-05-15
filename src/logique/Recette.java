@@ -14,6 +14,8 @@ public class Recette {
     public static final String NOT_IN_RANGE = "difficulté not in range";
     public static final String EXPERIENCE_SUPERIEUR_ZERO = "expérience est strictement supérieur a zéro";
     public static final int LONGEUR_NOM_MIN = 10;
+    public static final int DIFF_MINIMUM = 1;
+    public static final int DIFF_MAXIMUM = 5;
     private ArrayList<Ingredient> ingredients;
     private String nom;
     private int difficulte;
@@ -50,7 +52,7 @@ public class Recette {
     }
 
     private void setDifficulte(int difficulte) {
-        if (difficulte < 1 || difficulte > 5) throw new IllegalArgumentException(NOT_IN_RANGE);
+        if (difficulte < DIFF_MINIMUM || difficulte > DIFF_MAXIMUM) throw new IllegalArgumentException(NOT_IN_RANGE);
         else this.difficulte = difficulte;
     }
 

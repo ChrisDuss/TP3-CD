@@ -25,6 +25,16 @@ public class TestsRecette {
         rec = new Recette(ing1, ing2, ing3, nomInit, diffInit, expInint);
     }
 
+    @AfterEach
+    public void Ingredient_check_invariant() {
+        assertNotNull(rec.getNom());
+        assertTrue(rec.getNom().length() >= Recette.LONGEUR_NOM_MIN);
+        assertTrue(
+                rec.getDifficulte() > Recette.DIFF_MINIMUM &&
+                rec.getDifficulte() < Recette.DIFF_MAXIMUM);
+        assertTrue(rec.getPointExperience() > 0);
+    }
+
     @Test
     public void Recette_Constructeur_Aucun_Ingredient_null() {
         Exception ex = assertThrows(IllegalArgumentException.class, ()->
