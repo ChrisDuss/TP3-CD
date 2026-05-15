@@ -30,20 +30,20 @@ public class TestsIngredient {
     @Test
     public void Ingredient_Constructeur_setNom_Non_Null() {
         Exception ex = assertThrows(IllegalArgumentException.class, ()->
-                ing = new Ingredient(null, prixInint));
+                new Ingredient(null, prixInint));
 
         assertEquals(Ingredient.NOM_NULL, ex.getMessage());
     }
 
     @Test
-    public void Ingredient_Constructeur_setNom() {
+    public void Ingredient_Constructeur_setNom_correct() {
         assertEquals(ing.getNom(), nomInit);
     }
 
     @Test
     public void Ingredient_Constructeur_setNom_Nom_Trop_Court() {
         Exception ex = assertThrows(IllegalArgumentException.class, ()->
-                ing = new Ingredient("i", prixInint));
+                new Ingredient("i", prixInint));
 
         assertEquals(Ingredient.NOM_TROP_COURT, ex.getMessage());
     }
@@ -51,13 +51,13 @@ public class TestsIngredient {
     @Test
     public void Ingredient_Constructeur_setPrix_Superieur_a_zero() {
         Exception ex = assertThrows(IllegalArgumentException.class, ()->
-                ing = new Ingredient(nomInit, 0));
+                new Ingredient(nomInit, 0));
 
         assertEquals(Ingredient.PRIX_SUPERIEUR_ZERO, ex.getMessage());
     }
 
     @Test
-    public void Ingredient_Constructeur_setPrix() {
+    public void Ingredient_Constructeur_setPrix_correct() {
         assertEquals(ing.getPrix(), prixInint);
     }
 }

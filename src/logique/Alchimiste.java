@@ -2,7 +2,7 @@ package logique;
 
 /**
  * Author: Christophe Dussault
- * Ordre de conseption : 2e
+ * Ordre de conseption : 3e
  */
 
 import java.util.Random;
@@ -12,6 +12,7 @@ public class Alchimiste {
     public static final String NOM_NULL = "nom ne peut pas être null";
     public static final String NOM_TROP_COURT = "nom trop court";
     public static final String RECETTE_NULL = "recette ne peut pas être null";
+    public static final int LONGEUR_NOM_MINIMUM = 6;
     private String nom;
     private int niveau;
     private int experience;
@@ -41,7 +42,7 @@ public class Alchimiste {
 
     private void setNom(String nom) {
         if (nom == null) throw new IllegalArgumentException(NOM_NULL);
-        else if (nom.length() <= 6) throw new IllegalArgumentException(NOM_TROP_COURT);
+        else if (nom.length() < LONGEUR_NOM_MINIMUM) throw new IllegalArgumentException(NOM_TROP_COURT);
         else this.nom = nom;
     }
 
