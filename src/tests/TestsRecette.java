@@ -3,13 +3,12 @@ package tests;
 import logique.Ingredient;
 import logique.Recette;
 import org.junit.jupiter.api.*;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * TP3 - CD.iml
- *
- * @author chris
- * @since 5/13/2026
+ * Author : Christophe Dussault
+ * Ordre de conception : 2e
  */
 public class TestsRecette {
     Ingredient ing1 = new Ingredient("Carrot", 2);
@@ -31,13 +30,13 @@ public class TestsRecette {
         assertTrue(rec.getNom().length() >= Recette.LONGEUR_NOM_MIN);
         assertTrue(
                 rec.getDifficulte() > Recette.DIFF_MINIMUM &&
-                rec.getDifficulte() < Recette.DIFF_MAXIMUM);
+                        rec.getDifficulte() < Recette.DIFF_MAXIMUM);
         assertTrue(rec.getPointExperience() > 0);
     }
 
     @Test
     public void Recette_Constructeur_Aucun_Ingredient_null() {
-        Exception ex = assertThrows(IllegalArgumentException.class, ()->
+        Exception ex = assertThrows(IllegalArgumentException.class, () ->
                 new Recette(ing1, null, ing3, nomInit, diffInit, expInint));
 
         assertEquals(Recette.AUCUN_INGREDIENT_NULL, ex.getMessage());
@@ -45,7 +44,7 @@ public class TestsRecette {
 
     @Test
     public void Recette_Constructeur_Ingredient_Unique() {
-        Exception ex = assertThrows(IllegalArgumentException.class, ()->
+        Exception ex = assertThrows(IllegalArgumentException.class, () ->
                 new Recette(ing1, ing1, ing3, nomInit, diffInit, expInint));
 
         assertEquals(Recette.INGREDIENTS_UNIQUE, ex.getMessage());
@@ -53,7 +52,7 @@ public class TestsRecette {
 
     @Test
     public void Recette_Constructeur_setNom_Non_Null() {
-        Exception ex = assertThrows(IllegalArgumentException.class, ()->
+        Exception ex = assertThrows(IllegalArgumentException.class, () ->
                 new Recette(ing1, ing2, ing3, null, diffInit, expInint));
 
         assertEquals(Recette.NOM_NULL, ex.getMessage());
@@ -61,7 +60,7 @@ public class TestsRecette {
 
     @Test
     public void Recette_Constructeur_setNom_Nom_Trop_Court() {
-        Exception ex = assertThrows(IllegalArgumentException.class, ()->
+        Exception ex = assertThrows(IllegalArgumentException.class, () ->
                 new Recette(ing1, ing2, ing3, "nomInit", diffInit, expInint));
 
         assertEquals(Recette.NOM_TROP_COURT, ex.getMessage());
@@ -74,7 +73,7 @@ public class TestsRecette {
 
     @Test
     public void Recette_Constructeur_setDifficulte_Plus_bas_1() {
-        Exception ex = assertThrows(IllegalArgumentException.class, ()->
+        Exception ex = assertThrows(IllegalArgumentException.class, () ->
                 new Recette(ing1, ing2, ing3, nomInit, 0, expInint));
 
         assertEquals(Recette.NOT_IN_RANGE, ex.getMessage());
@@ -82,7 +81,7 @@ public class TestsRecette {
 
     @Test
     public void Recette_Constructeur_setDifficulte_Plus_Haut_5() {
-        Exception ex = assertThrows(IllegalArgumentException.class, ()->
+        Exception ex = assertThrows(IllegalArgumentException.class, () ->
                 new Recette(ing1, ing2, ing3, nomInit, 6, expInint));
 
         assertEquals(Recette.NOT_IN_RANGE, ex.getMessage());
@@ -95,7 +94,7 @@ public class TestsRecette {
 
     @Test
     public void Recette_Constructeur_setPointExperiance_Superieur_a_zero() {
-        Exception ex = assertThrows(IllegalArgumentException.class, ()->
+        Exception ex = assertThrows(IllegalArgumentException.class, () ->
                 new Recette(ing1, ing2, ing3, nomInit, diffInit, 0));
 
         assertEquals(Recette.EXPERIENCE_SUPERIEUR_ZERO, ex.getMessage());
@@ -114,7 +113,7 @@ public class TestsRecette {
 
     @Test
     public void Recette_contientIngredient_non_null() {
-        Exception ex = assertThrows(IllegalArgumentException.class, ()->
+        Exception ex = assertThrows(IllegalArgumentException.class, () ->
                 rec.contientIngredient(null));
 
         assertEquals(Recette.NOM_NULL, ex.getMessage());

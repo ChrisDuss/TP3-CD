@@ -2,13 +2,12 @@ package tests;
 
 import logique.Ingredient;
 import org.junit.jupiter.api.*;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * TP3 - CD.iml
- *
- * @author chris
- * @since 5/13/2026
+ * Author: Christophe Dussault
+ * Ordre de conseption : 1e
  */
 public class TestsIngredient {
     Ingredient ing = null;
@@ -29,7 +28,7 @@ public class TestsIngredient {
 
     @Test
     public void Ingredient_Constructeur_setNom_Non_Null() {
-        Exception ex = assertThrows(IllegalArgumentException.class, ()->
+        Exception ex = assertThrows(IllegalArgumentException.class, () ->
                 new Ingredient(null, prixInint));
 
         assertEquals(Ingredient.NOM_NULL, ex.getMessage());
@@ -42,7 +41,7 @@ public class TestsIngredient {
 
     @Test
     public void Ingredient_Constructeur_setNom_Nom_Trop_Court() {
-        Exception ex = assertThrows(IllegalArgumentException.class, ()->
+        Exception ex = assertThrows(IllegalArgumentException.class, () ->
                 new Ingredient("i", prixInint));
 
         assertEquals(Ingredient.NOM_TROP_COURT, ex.getMessage());
@@ -50,7 +49,7 @@ public class TestsIngredient {
 
     @Test
     public void Ingredient_Constructeur_setPrix_Superieur_a_zero() {
-        Exception ex = assertThrows(IllegalArgumentException.class, ()->
+        Exception ex = assertThrows(IllegalArgumentException.class, () ->
                 new Ingredient(nomInit, 0));
 
         assertEquals(Ingredient.PRIX_SUPERIEUR_ZERO, ex.getMessage());

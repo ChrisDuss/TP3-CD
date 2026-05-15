@@ -1,31 +1,32 @@
 package logique;
 
-public class ResultatExperience
-{
+/**
+ * Author: Christophe Dussault
+ * Ordre de conseption : 1e
+ */
+
+public class ResultatExperience {
     private boolean existe;
     private boolean success;
 
-    public  ResultatExperience()
-    {
+    public ResultatExperience() {
         this.existe = false;
         this.success = false;
     }
 
-    public boolean getExiste()
-    {
+    public boolean getExiste() {
         return existe;
     }
-    public void setExiste(boolean existe)
-    {
+
+    public void setExiste(boolean existe) {
         this.existe = existe;
     }
 
-    public boolean getSuccess()
-    {
+    public boolean getSuccess() {
         return success;
     }
-    public void setSuccess(boolean success)
-    {
+
+    public void setSuccess(boolean success) {
         this.success = success;
     }
 

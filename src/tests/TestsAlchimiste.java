@@ -3,21 +3,19 @@ package tests;
 import logique.Alchimiste;
 import logique.Ingredient;
 import logique.Recette;
-import org.junit.After;
 import org.junit.jupiter.api.*;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * TP3 - CD.iml
- *
- * @author chris
- * @since 5/13/2026
+ * Author: Christophe Dussault
+ * Ordre de conseption : 3e
  */
 public class TestsAlchimiste {
     Recette rec = new Recette(new Ingredient("Carrot", 2),
             new Ingredient("Patate", 5),
             new Ingredient("Amethyst", 20),
-            "Recette_soupe", 5, 3);
+            "Recette_soupe", 5, 30);
 
     String nomInitHaut = "Merlin";
     String nomInit = "Gandalf";
@@ -40,7 +38,7 @@ public class TestsAlchimiste {
 
     @Test
     public void Alchimiste_setNom_non_null() {
-        Exception ex = assertThrows(IllegalArgumentException.class, ()->
+        Exception ex = assertThrows(IllegalArgumentException.class, () ->
                 new Alchimiste(null));
 
         assertEquals(Alchimiste.NOM_NULL, ex.getMessage());
@@ -48,7 +46,7 @@ public class TestsAlchimiste {
 
     @Test
     public void Alchimiste_setNom_trop_court() {
-        Exception ex = assertThrows(IllegalArgumentException.class, ()->
+        Exception ex = assertThrows(IllegalArgumentException.class, () ->
                 new Alchimiste("a"));
 
         assertEquals(Alchimiste.NOM_TROP_COURT, ex.getMessage());
@@ -71,7 +69,7 @@ public class TestsAlchimiste {
 
     @Test
     public void Alchimiste_FairePotion_non_null() {
-        Exception ex = assertThrows(IllegalArgumentException.class, ()->
+        Exception ex = assertThrows(IllegalArgumentException.class, () ->
                 alch.fairePotion(null));
 
         assertEquals(Alchimiste.RECETTE_NULL, ex.getMessage());
