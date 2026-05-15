@@ -2,13 +2,14 @@ package logique;
 
 /**
  * Author: Christophe Dussault
- * Ordre de conseption : 4e
+ * Ordre de conseption : 1e
  */
 
 public class Ingredient {
     public static final String NOM_NULL = "nom ne peut pas être null";
     public static final String NOM_TROP_COURT = "nom trop court";
-    public static final String PRIX_SUPÉRIEUR_ZÉRO = "Prix doit être supérieur à zéro";
+    public static final String PRIX_SUPERIEUR_ZERO = "Prix doit être supérieur à zéro";
+    public static final int LONGEUR_NOM_MIN = 6;
 
     private String nom;
     private int prix;
@@ -24,7 +25,7 @@ public class Ingredient {
 
     private void setNom(String nom) {
         if (nom == null) throw new IllegalArgumentException(NOM_NULL);
-        else if (nom.length() <= 6) throw new IllegalArgumentException(NOM_TROP_COURT);
+        else if (nom.length() < LONGEUR_NOM_MIN) throw new IllegalArgumentException(NOM_TROP_COURT);
         else this.nom = nom;
     }
 
@@ -33,8 +34,8 @@ public class Ingredient {
     }
 
     private void setPrix(int prix) {
-        if (prix < 0) throw new IllegalArgumentException(PRIX_SUPÉRIEUR_ZÉRO);
-        this.prix = prix;
+        if (prix <= 0) throw new IllegalArgumentException(PRIX_SUPERIEUR_ZERO);
+        else this.prix = prix;
     }
 
     @Override
