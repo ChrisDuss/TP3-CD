@@ -23,6 +23,13 @@ public class Ingredient {
         return nom;
     }
 
+    /**
+     * Change le nom de l'ingrédient.
+     * @param nom the nom voulue
+     *
+     * @throws IllegalArgumentException si le nom est null
+     * @throws IllegalArgumentException si le nom est inferieur à 6 charactères
+     */
     private void setNom(String nom) {
         if (nom == null) throw new IllegalArgumentException(NOM_NULL);
         else if (nom.length() < LONGEUR_NOM_MIN) throw new IllegalArgumentException(NOM_TROP_COURT);
@@ -33,6 +40,12 @@ public class Ingredient {
         return prix;
     }
 
+    /**
+     * Change le prix de l'ingrédient.
+     * @param prix le prix voulu
+     *
+     * @throws IllegalArgumentException si le prix est inférieur à zéro
+     */
     private void setPrix(int prix) {
         if (prix <= 0) throw new IllegalArgumentException(PRIX_SUPERIEUR_ZERO);
         else this.prix = prix;
