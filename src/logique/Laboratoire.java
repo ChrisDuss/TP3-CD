@@ -2,7 +2,7 @@ package logique;
 
 /**
  * Author: Christophe Dussault
- * Ordre de conseption : 1e
+ * Ordre de conseption : 4e
  */
 
 import java.io.FileWriter;
@@ -17,6 +17,7 @@ import java.util.List;
 public class Laboratoire {
     public static final String RECETTE_NULL = "recette ne peut pas être null";
     public static final String ALCHIMISTE_NULL = "Alchimiste ne peut pas être null";
+    public static final String PAS_DE_TOUT_INGREDIENTS = "Vous ne détener pas de tout les ingrédients";
 
     private ArrayList<Ingredient> ingredients;
     private ArrayList<Recette> recettes;
@@ -73,6 +74,9 @@ public class Laboratoire {
             Ingredient ingredient1 = this.trouverIngredient(ing1);
             Ingredient ingredient2 = this.trouverIngredient(ing2);
             Ingredient ingredient3 = this.trouverIngredient(ing3);
+
+            if (ingredient1 == null || ingredient2 == null || ingredient3 == null)
+                throw new IllegalArgumentException(PAS_DE_TOUT_INGREDIENTS);
 
             recette = new Recette(ingredient1, ingredient2, ingredient3, nom, difficulte, pointExperience);
             ajouterRecette(recette);

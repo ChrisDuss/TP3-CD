@@ -29,5 +29,4 @@ public class ResultatExperience {
     public void setSuccess(boolean success) {
         this.success = success;
     }
-
 }
