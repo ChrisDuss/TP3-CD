@@ -21,6 +21,19 @@ public class Recette {
     private int difficulte;
     private int pointExperience;
 
+    /**
+     * Instancialise une recette.
+     *
+     * @param ing1 le premier ingrédient
+     * @param ing2 le deuxième ingrédient
+     * @param ing3 le troisième ingrédient
+     * @param nom le nom de la recette
+     * @param difficulte la difficulté de la recette
+     * @param pointExperience les points d'experiences qu'elle donne
+     *
+     * @throws IllegalArgumentException si une des ingrédients est null
+     * @throws IllegalArgumentException si tous les ingrédients ne sont pas unique
+     */
     public Recette(Ingredient ing1, Ingredient ing2, Ingredient ing3, String nom, int difficulte, int pointExperience) {
         if (ing1 == null || ing2 == null || ing3 == null) throw new IllegalArgumentException(AUCUN_INGREDIENT_NULL);
         else if (ing1 == ing2 || ing2 == ing3 || ing3 == ing1) throw new IllegalArgumentException(INGREDIENTS_UNIQUE);
@@ -41,6 +54,13 @@ public class Recette {
         return nom;
     }
 
+    /**
+     * Set le nom de la recette.
+     * @param nom the nom voulue
+     *
+     * @throws IllegalArgumentException si le nom est null
+     * @throws IllegalArgumentException si le nom est inferieur à 10 charactères
+     */
     private void setNom(String nom) {
         if (nom == null) throw new IllegalArgumentException(NOM_NULL);
         else if (nom.length() < LONGEUR_NOM_MIN) throw new IllegalArgumentException(NOM_TROP_COURT);
@@ -51,6 +71,12 @@ public class Recette {
         return difficulte;
     }
 
+    /**
+     * Set la difficulté de la recette.
+     * @param difficulte la difficulté voulue
+     *
+     * @throws IllegalArgumentException si la difficulté n'est pas entre 1 et 5.
+     */
     private void setDifficulte(int difficulte) {
         if (difficulte < DIFF_MINIMUM || difficulte > DIFF_MAXIMUM) throw new IllegalArgumentException(NOT_IN_RANGE);
         else this.difficulte = difficulte;
@@ -60,6 +86,12 @@ public class Recette {
         return pointExperience;
     }
 
+    /**
+     * Set l'experience que la recette donne
+     * @param pointExperience point d'experience voulue
+     *
+     * @throws IllegalArgumentException si inférieur ou égale à zéro.
+     */
     private void setPointExperience(int pointExperience) {
         if (pointExperience <= 0) throw new IllegalArgumentException(EXPERIENCE_SUPERIEUR_ZERO);
         else this.pointExperience = pointExperience;
@@ -74,6 +106,13 @@ public class Recette {
         return prixTotal;
     }
 
+    /**
+     * Regarde si la recette contient un ingrédient.
+     * @param nom le nom de l'ingrédient rechercher
+     * @return vraie si l'ingrédient est dans la recette
+     *
+     * @throws IllegalArgumentException si le nom donner est null
+     */
     public boolean contientIngredient(String nom) {
         if (nom == null) throw new IllegalArgumentException(NOM_NULL);
         else {

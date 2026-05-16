@@ -24,7 +24,7 @@ public class Ingredient {
     }
 
     /**
-     * Change le nom de l'ingrédient.
+     * Set le nom de l'ingrédient.
      * @param nom the nom voulue
      *
      * @throws IllegalArgumentException si le nom est null
@@ -41,7 +41,7 @@ public class Ingredient {
     }
 
     /**
-     * Change le prix de l'ingrédient.
+     * Set le prix de l'ingrédient.
      * @param prix le prix voulu
      *
      * @throws IllegalArgumentException si le prix est inférieur à zéro
