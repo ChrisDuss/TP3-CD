@@ -42,6 +42,11 @@ public class Laboratoire {
         return proprietaire;
     }
 
+
+    /**
+     * Set le propriétaire du laboratoire.
+     * @param alchimiste l'achimiste voulue
+     */
     private void setProprietaire(Alchimiste alchimiste) {
         if (alchimiste == null) throw new IllegalArgumentException(ALCHIMISTE_NULL);
         else this.proprietaire = alchimiste;
@@ -61,6 +66,18 @@ public class Laboratoire {
         return experience;
     }
 
+    /**
+     * Crée une nouvelle potion si celle-ci n'existe pas encore
+     * @param ing1 le premier ingrédient
+     * @param ing2 le deuxième ingrédient
+     * @param ing3 le troisième ingrédient
+     * @param nom le nom de la recette
+     * @param difficulte la difficultée de la recette
+     * @param pointExperience les points d'experience qu'elle donne
+     * @return le resultat de l'experience
+     *
+     * @throws IllegalArgumentException si un des ingredients n'est pas dans la liste d'ingrédients.
+     */
     public ResultatExperience creerNouvellePotion(String ing1, String ing2, String ing3, String nom, int difficulte, int pointExperience) {
         ResultatExperience experience = new ResultatExperience();
         experience.setExiste(true);
@@ -161,6 +178,12 @@ public class Laboratoire {
         return recettes;
     }
 
+    /**
+     * Ajoute une recette à la liste de recettes
+     * @param recette la recette à ajouter
+     *
+     * @throws IllegalArgumentException si la recette donnée est null
+     */
     private void ajouterRecette(Recette recette) {
         if (recette == null) throw new IllegalArgumentException(RECETTE_NULL);
         String nouvelleRecette = recette.toString();
