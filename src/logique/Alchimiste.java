@@ -40,6 +40,13 @@ public class Alchimiste {
         return this.experience;
     }
 
+    /**
+     * Change le nom de l'alchimiste.
+     * @param nom the nom voulue
+     *
+     * @throws IllegalArgumentException si le nom est null
+     * @throws IllegalArgumentException si le nom est inferieur à 6 charactères
+     */
     private void setNom(String nom) {
         if (nom == null) throw new IllegalArgumentException(NOM_NULL);
         else if (nom.length() < LONGEUR_NOM_MINIMUM) throw new IllegalArgumentException(NOM_TROP_COURT);
@@ -54,6 +61,16 @@ public class Alchimiste {
         this.experience = experience;
     }
 
+    /**
+     * Crée une potion et l'ajoute avec une recette
+     * et ajoute les points d'experiences si elle est un success.
+     * <pre>
+     * Les chances de success augmente avec le niveau de l'achimiste.
+     * @param recette recette à faire
+     * @return vraie si c'est un success
+     *
+     * @throws IllegalArgumentException si la recette est null
+     */
     public boolean fairePotion(Recette recette) {
         if (recette == null) throw new IllegalArgumentException(RECETTE_NULL);
         boolean estReussi = false;
