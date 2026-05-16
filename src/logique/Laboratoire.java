@@ -46,6 +46,8 @@ public class Laboratoire {
     /**
      * Set le propriétaire du laboratoire.
      * @param alchimiste l'achimiste voulue
+     *
+     * @throws IllegalArgumentException si alchimiste est null
      */
     private void setProprietaire(Alchimiste alchimiste) {
         if (alchimiste == null) throw new IllegalArgumentException(ALCHIMISTE_NULL);

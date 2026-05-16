@@ -65,6 +65,11 @@ public class TestsLaboratoire{
     }
 
     @Test
+    public void Laboratoire_setProprietaire_correct() {
+        assertEquals(lab.getProprietaire(), alch);
+    }
+
+    @Test
     public void Laboratoire_fairePotion_recette_null() {
         ResultatExperience experience = new ResultatExperience();
 
