@@ -156,9 +156,6 @@ public class TestsLaboratoire{
         lab.creerNouvellePotion(ing1, ing2, ing3, nom, 1, 20);
         Laboratoire labTemp = new Laboratoire(alch);
 
-        System.out.println("labTemp:\t" + labTemp.getRecettes());
-        System.out.println("lab:\t\t" + lab.getRecettes());
-
         assertEquals(labTemp.getRecettes().toString(), lab.getRecettes().toString());
     }
 
